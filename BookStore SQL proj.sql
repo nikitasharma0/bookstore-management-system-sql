@@ -94,7 +94,7 @@ SELECT Customer_ID, count(Order_ID) od FROM Orders
 GROUP BY Customer_ID
 HAVING od>=2;
 
--- 4) Find the most frequently ordered book: select * from Orders;
+-- 4) Find the most frequently ordered book: 
 SELECT Book_ID, count(Order_ID) id FROM Orders
 GROUP BY Book_ID
 ORDER BY id desc
@@ -111,12 +111,12 @@ SELECT b.Author, sum(o.Quantity)
 FROM Books b join Orders o on b.Book_ID = o.Book_ID
 group by b.Author;
 
--- 7) List the cities where customers who spent over $30 are located: SELECT * FROM Books; SELECT * FROM Orders;
+-- 7) List the cities where customers who spent over $30 are located: 
 SELECT distinct c.City, o.Total_Amount  FROM 
 Customers c join Orders o on c.Customer_ID=o.Customer_ID
 where o.Total_Amount>30;
 
--- 8) Find the customer who spent the most on orders: SELECT * FROM Customers;
+-- 8) Find the customer who spent the most on orders: 
 SELECT C.Name, sum(o.Total_Amount) max_order FROM 
 Customers c join Orders o on c.Customer_ID=o.Customer_ID
 group by c.Name
